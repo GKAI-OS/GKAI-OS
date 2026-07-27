@@ -33,7 +33,6 @@ class VehicleReview(Base):
         String,
         nullable=True
     )
-    # User / Expert / Owner
 
 
     rating = Column(
@@ -74,5 +73,5 @@ class VehicleReview(Base):
 
     vehicle = relationship(
         "Vehicle",
-        backref="reviews"
+        back_populates="reviews"
     )

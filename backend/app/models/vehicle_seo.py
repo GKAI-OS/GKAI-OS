@@ -1,4 +1,11 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    DateTime,
+    ForeignKey
+)
+
 from sqlalchemy.orm import relationship
 
 from datetime import datetime
@@ -86,11 +93,7 @@ class VehicleSEO(Base):
     )
 
 
-    # =====================
-    # Relationship
-    # =====================
-
     vehicle = relationship(
         "Vehicle",
-        backref="seo"
+        back_populates="seo"
     )

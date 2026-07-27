@@ -81,20 +81,11 @@ class VehicleRating(Base):
     )
 
 
-    # =====================
-    # Relationship
-    # =====================
-
     vehicle = relationship(
         "Vehicle",
-        backref="ratings"
+        back_populates="ratings"
     )
 
-
-    # =====================
-    # Rating Constraint
-    # Only 1 to 5 stars allowed
-    # =====================
 
     __table_args__ = (
         CheckConstraint(

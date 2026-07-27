@@ -37,5 +37,5 @@ class VehicleSpec(Base):
 
     vehicle = relationship(
         "Vehicle",
-        backref="specs"
+        back_populates="specs"
     )

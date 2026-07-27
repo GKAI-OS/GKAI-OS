@@ -1,4 +1,12 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    Boolean,
+    ForeignKey,
+    DateTime
+)
+
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
@@ -81,9 +89,11 @@ class Vehicle(Base):
     )
 
 
+
     # =====================
     # Relationships
     # =====================
+
 
     brand = relationship(
         "Brand",
@@ -94,4 +104,47 @@ class Vehicle(Base):
     category = relationship(
         "Category",
         backref="vehicles"
+    )
+
+
+    # Vehicle Specifications
+    specs = relationship(
+        "VehicleSpec",
+        back_populates="vehicle"
+    )
+
+
+    # Vehicle Ratings
+    ratings = relationship(
+        "VehicleRating",
+        back_populates="vehicle"
+    )
+
+
+    # Vehicle Reviews
+    reviews = relationship(
+        "VehicleReview",
+        back_populates="vehicle"
+    )
+
+
+    # Vehicle Prices
+    prices = relationship(
+        "VehiclePrice",
+        back_populates="vehicle"
+    )
+
+
+    # Vehicle SEO
+    seo = relationship(
+        "VehicleSEO",
+        back_populates="vehicle"
+    )
+
+
+    # AI Vehicle Score
+    ai_score = relationship(
+        "AIVehicleScore",
+        back_populates="vehicle",
+        uselist=False
     )

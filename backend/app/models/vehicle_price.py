@@ -67,5 +67,5 @@ class VehiclePrice(Base):
 
     vehicle = relationship(
         "Vehicle",
-        backref="prices"
+        back_populates="prices"
     )
