@@ -1,4 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy.orm import relationship
+
 from datetime import datetime
 
 from app.database import Base
@@ -81,4 +83,14 @@ class VehicleSEO(Base):
     last_updated = Column(
         DateTime,
         default=datetime.utcnow
+    )
+
+
+    # =====================
+    # Relationship
+    # =====================
+
+    vehicle = relationship(
+        "Vehicle",
+        backref="seo"
     )

@@ -7,6 +7,8 @@ from sqlalchemy import (
     CheckConstraint
 )
 
+from sqlalchemy.orm import relationship
+
 from datetime import datetime
 
 from app.database import Base
@@ -79,7 +81,21 @@ class VehicleRating(Base):
     )
 
 
-    # Rating only between 1 and 5 stars
+    # =====================
+    # Relationship
+    # =====================
+
+    vehicle = relationship(
+        "Vehicle",
+        backref="ratings"
+    )
+
+
+    # =====================
+    # Rating Constraint
+    # Only 1 to 5 stars allowed
+    # =====================
+
     __table_args__ = (
         CheckConstraint(
             "rating >= 1 AND rating <= 5",
