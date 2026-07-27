@@ -1,4 +1,11 @@
-from sqlalchemy import Column, Integer, ForeignKey, String, DateTime
+from sqlalchemy import (
+    Column,
+    Integer,
+    ForeignKey,
+    String,
+    DateTime
+)
+
 from sqlalchemy.orm import relationship
 from datetime import datetime
 
@@ -84,6 +91,8 @@ class AIVehicleScore(Base):
     )
 
 
+    # Relationship
     vehicle = relationship(
-        "Vehicle"
+        "Vehicle",
+        back_populates="ai_score"
     )

@@ -4,6 +4,10 @@ from datetime import datetime
 
 
 
+# =====================
+# AI Vehicle Score Create
+# =====================
+
 class AIVehicleScoreCreate(BaseModel):
 
     vehicle_id: int
@@ -28,6 +32,10 @@ class AIVehicleScoreCreate(BaseModel):
 
 
 
+# =====================
+# AI Vehicle Score Response
+# =====================
+
 class AIVehicleScoreResponse(BaseModel):
 
     id: int
@@ -48,11 +56,12 @@ class AIVehicleScoreResponse(BaseModel):
 
     overall_score: int
 
-    ranking: Optional[int]
+    ranking: Optional[int] = None
 
-    score_reason: Optional[str]
+    score_reason: Optional[str] = None
 
     created_at: datetime
+
 
 
     class Config:
